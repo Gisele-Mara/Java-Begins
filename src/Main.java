@@ -1,10 +1,9 @@
-import java.util.Scanner;  // Import the Scanner class
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
        int numeroInteiro = 9;
-       float numeroReal = 2.22f;
+       float numeroReal = 2.22545f;
        char letra = 'g';
        boolean logicc = false;
        String joke = "Here goes a joke...";
@@ -12,7 +11,7 @@ public class Main {
        System.out.println(joke);
 
 
-       System.out.printf("An integer number '%d', a float number '%.1f', a char letter '%C' and a '%b' boolean enter a bar.", numeroInteiro, numeroReal, letra, logicc);
+       System.out.printf("An integer number '%d', a float number '%.1f', a char letter '%C' and a '%b' boolean enter a bar. \n", numeroInteiro, numeroReal, letra, logicc);
 
 
     }
