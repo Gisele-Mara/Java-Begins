@@ -4,9 +4,12 @@ import java.util.Scanner;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
 
-        Scanner keyboard = new Scanner(System.in);
+    public static void main(String[] args) {
+       Exercicios testinho = new Exercicios();
+//       testinho.triangle();
+        testinho.biggerThan10OrEven();
+//        Scanner keyboard = new Scanner(System.in);
 
 //        System.out.println("Enter your username");
 
@@ -52,7 +55,12 @@ public class Main {
 //
 //        System.out.printf("Grade point average %.1f", media);
 
-        JOptionPane.showMessageDialog(null,"Hello World");
+//        JOptionPane.showMessageDialog(null,"Hello World");
+//       String something = JOptionPane.showInputDialog("Please write something");
+//        System.out.println(something);
+//        int age = Integer.parseInt(JOptionPane.showInputDialog("Please write your age:"));
+//        System.out.printf("Age %d: ", age);
 
+//        System.out.println(JOptionPane.showConfirmDialog(null,"Are you sure?"));
     }
 }
