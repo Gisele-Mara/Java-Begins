@@ -45,10 +45,10 @@ public class Exercicios {
 
         }
 
-        if(lengths.get(0) == lengths.get(1) && lengths.get(0) == lengths.get(2)){
+        if(lengths.get(0).equals(lengths.get(1)) && lengths.get(0).equals(lengths.get(2))){
             JOptionPane.showMessageDialog(null,"The triangle is equilateral.");
 
-        } else if (lengths.get(0) != lengths.get(1) && lengths.get(0) != lengths.get(2) && lengths.get(1) != lengths.get(2))  {
+        } else if (!lengths.get(0).equals(lengths.get(1)) && !lengths.get(0).equals(lengths.get(2)) && !lengths.get(1).equals(lengths.get(2)))  {
             JOptionPane.showMessageDialog(null,"The triangle is scalene.");
 
         } else{
@@ -58,18 +58,18 @@ public class Exercicios {
 
     }
 
-    boolean biggerThan10OrEven (){
+    void biggerThan10OrEven (){
 
         int inputNumber  = Integer.parseInt(JOptionPane.showInputDialog("Write a number"));
 
 
         if (inputNumber % 2 == 0 && inputNumber > 10) {
             JOptionPane.showMessageDialog(null,"The number is even and bigger than 10.");
-            return  true;
+
         }
 
             JOptionPane.showMessageDialog(null,"The number is even and bigger than 10.");
-            return  false;
+
 
 
     }

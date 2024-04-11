@@ -7,8 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
        Exercicios testinho = new Exercicios();
-//       testinho.triangle();
-        testinho.biggerThan10OrEven();
+       testinho.triangle();
+//        testinho.biggerThan10OrEven();
 //        Scanner keyboard = new Scanner(System.in);
 
 //        System.out.println("Enter your username");
