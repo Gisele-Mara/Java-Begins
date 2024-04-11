@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Exercicios {
+public class Activities {
 
     void numberState (){
         Scanner keyboard = new Scanner(System.in);
@@ -75,9 +75,9 @@ public class Exercicios {
     }
 
     void grade(){
-        Float inputGrade  = Float.parseFloat(JOptionPane.showInputDialog("Write the grade"));
+        float inputGrade  = Float.parseFloat(JOptionPane.showInputDialog("Write the grade"));
 
-        Float inputFrequency  = Float.parseFloat(JOptionPane.showInputDialog("Write the frequency"));
+        float inputFrequency  = Float.parseFloat(JOptionPane.showInputDialog("Write the frequency"));
 
         if(inputGrade >= 7 && inputFrequency > 75){
             JOptionPane.showMessageDialog(null,"Student approved.");
@@ -88,18 +88,57 @@ public class Exercicios {
 
     }
 
-    void ThreeAndFive (){
+    void divisibleByThreeAndFive (){
 
         int inputNumber  = Integer.parseInt(JOptionPane.showInputDialog("Write a number"));
 
 
         if(inputNumber % 3 == 0  && (inputNumber % 5 == 0)){
-            JOptionPane.showMessageDialog(null,"Ok.");
+            JOptionPane.showMessageDialog(null,"The number" + inputNumber + " is divisible by three and five");
 
         } else{
-            JOptionPane.showMessageDialog(null,"Not Ok.");
+            JOptionPane.showMessageDialog(null,"The number" + inputNumber + " is NOT divisible by three and five.");
         }
     }
 
+    void lowercaseVowelOrOdd (){
+
+      String character = JOptionPane.showInputDialog("Write a character");
+
+        String[] vowels = {"a", "e", "i", "o", "u"};
+
+        if (Integer.parseInt(character) % 2 != 0){
+
+            JOptionPane.showMessageDialog(null,"The number is odd.");
+            return;
+
+        }
+
+        for (String vowel : vowels) {
+            if (character.equals(vowel)){
+
+                JOptionPane.showMessageDialog(null,"The character is a vowel.");
+                return;
+            }
+
+        }
+
+        JOptionPane.showMessageDialog(null,"The character is neither a vowel or an odd number.");
+
+    }
+
+    void numberBetween20and30 (){
+
+        int inputNumber  = Integer.parseInt(JOptionPane.showInputDialog("Write a number"));
+
+        if(inputNumber >= 20 && inputNumber <=30){
+
+            JOptionPane.showMessageDialog(null,"The number is between 20 and 30.");
+            return;
+        }
+
+        JOptionPane.showMessageDialog(null,"The number is NOT between 20 and 30.");
+
+    }
 
 }

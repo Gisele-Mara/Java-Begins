@@ -6,9 +6,44 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-       Exercicios testinho = new Exercicios();
-       testinho.triangle();
-//        testinho.biggerThan10OrEven();
+       Activities testinho = new Activities();
+
+
+        Object[] chooseActivity = {"Number State", "Leap Year", "Triangle Rectangle", "Bigger than 10 or Even", "Grade", "Divisible by 3 And 5", "Lowercase vowel or Odd","Number between 20 and 30"};
+        String initialSelection = "Number State";
+        Object selection = JOptionPane.showInputDialog(null, "Choose an activity",
+                "Activities", JOptionPane.QUESTION_MESSAGE, null, chooseActivity, initialSelection);
+
+        System.out.println(selection);
+
+
+        switch (selection.toString()){
+
+            case "Number State":
+                testinho.numberState();
+                break;
+            case "Leap Year":
+                testinho.leapYear();
+                break;
+            case "Triangle Rectangle":
+                testinho.triangle();
+                break;
+            case "Bigger than 10 or Even":
+                testinho.biggerThan10OrEven();
+                break;
+            case "Number between 20 and 30":
+                testinho.numberBetween20and30();
+                break;
+            case "Grade":
+                testinho.grade();
+                break;
+            case "Lowercase vowel or Odd":
+                testinho.lowercaseVowelOrOdd();
+                break;
+            case "Divisible by 3 And 5":
+                testinho.divisibleByThreeAndFive();
+                break;
+        }
 //        Scanner keyboard = new Scanner(System.in);
 
 //        System.out.println("Enter your username");
@@ -55,12 +90,6 @@ public class Main {
 //
 //        System.out.printf("Grade point average %.1f", media);
 
-//        JOptionPane.showMessageDialog(null,"Hello World");
-//       String something = JOptionPane.showInputDialog("Please write something");
-//        System.out.println(something);
-//        int age = Integer.parseInt(JOptionPane.showInputDialog("Please write your age:"));
-//        System.out.printf("Age %d: ", age);
 
-//        System.out.println(JOptionPane.showConfirmDialog(null,"Are you sure?"));
     }
 }
