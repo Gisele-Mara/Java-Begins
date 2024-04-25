@@ -39,7 +39,7 @@ public class BankAccount {
 
     public boolean withdrawOption (float valueToWithdraw) {
         float finalBalance;
-        if (this.balance > valueToWithdraw){
+        if (this.balance < valueToWithdraw){
             return false;
         } else {
             finalBalance = getBalance() - valueToWithdraw;
