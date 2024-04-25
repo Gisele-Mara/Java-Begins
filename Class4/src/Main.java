@@ -35,7 +35,7 @@ public class Main {
             people.add(p);
         }
         System.out.println(people);
-//
+
 //        p.setAge(20);
 //        System.out.println(p.getAge());
         }
