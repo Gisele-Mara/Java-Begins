@@ -5,8 +5,6 @@ public class BankAccount {
 
     private float balance;
 
-    private float sum = 0;
-
 
     public int getClientNumber() {
         return clientNumber;
