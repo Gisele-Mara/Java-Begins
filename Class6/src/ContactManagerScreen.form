@@ -156,13 +156,16 @@
         </constraints>
         <properties/>
       </component>
-      <component id="8b13c" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="8b13c" class="javax.swing.JTextField" binding="lblFind">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+          <toolTipText value="Find contact by number, name or email"/>
+        </properties>
       </component>
       <component id="97fd6" class="javax.swing.JButton" binding="findButton" default-binding="true">
         <constraints>

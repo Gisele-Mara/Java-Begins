@@ -17,7 +17,7 @@ public class ContactManagerScreen extends JFrame {
     public JPanel ContactInputScreen;
     public JPanel contactPanel;
     private JTextArea allContacts;
-    private JTextField textField1;
+    private JTextField lblFind;
 
     static ArrayList<ContactManager> notebook = new ArrayList<ContactManager>();
 
@@ -41,6 +41,16 @@ public class ContactManagerScreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                if (lblFind.getText().contains("@")){
+                    for (ContactManager contact : notebook) {
+                        if (contact.getEmail().equals(lblEmail.getText())) {
+                            System.out.println(contact.getName());
+                            lblName.setText(contact.getName());
+                            lblEmail.setText(contact.getEmail());
+                            lblPhone.setText(Integer.toString(contact.getPhoneNumber()));
+                        }
+                    }
+                        }
                 for (ContactManager contact : notebook) {
 //                    notebook.get(i).getName();
                     if (contact.getName().equals(lblName.getText())) {
