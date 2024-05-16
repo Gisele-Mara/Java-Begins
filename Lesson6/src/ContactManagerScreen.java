@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class ContactManagerScreen extends JFrame {
     private JTextField lblEmail;
@@ -25,6 +26,10 @@ public class ContactManagerScreen extends JFrame {
     public ContactManagerScreen() {
 
 
+        String regex = "[0-9]"; //"^\\d+$"
+        final int[] indexEdit = new int[1];
+
+
         createButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,26 +46,41 @@ public class ContactManagerScreen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+               boolean isNumber = Pattern.compile(regex).matcher(lblFind.getText()).find();
+
                 if (lblFind.getText().contains("@")){
                     for (ContactManager contact : notebook) {
-                        if (contact.getEmail().equals(lblEmail.getText())) {
+                        if (contact.getEmail().equals(lblFind.getText())) {
+//                            System.out.println(contact.getName());
+                            lblName.setText(contact.getName());
+                            lblEmail.setText(contact.getEmail());
+                            lblPhone.setText(Integer.toString(contact.getPhoneNumber()));
+                            indexEdit[0] = notebook.indexOf(contact);
+                        }
+                    }
+                } else if (isNumber) {
+                    for (ContactManager contact : notebook) {
+                        if (Integer.toString(contact.getPhoneNumber()).equals(lblFind.getText())) {
                             System.out.println(contact.getName());
                             lblName.setText(contact.getName());
                             lblEmail.setText(contact.getEmail());
                             lblPhone.setText(Integer.toString(contact.getPhoneNumber()));
+                            indexEdit[0] = notebook.indexOf(contact);
                         }
                     }
-                        }
-                for (ContactManager contact : notebook) {
+
+                } else {
+                    for (ContactManager contact : notebook) {
 //                    notebook.get(i).getName();
-                    if (contact.getName().equals(lblName.getText())) {
-                        System.out.println(contact.getName());
-                        lblName.setText(contact.getName());
-                        lblEmail.setText(contact.getEmail());
-                        lblPhone.setText(Integer.toString(contact.getPhoneNumber()));
+                        if (contact.getName().equals(lblFind.getText())) {
+                            System.out.println(contact.getName());
+                            lblName.setText(contact.getName());
+                            lblEmail.setText(contact.getEmail());
+                            lblPhone.setText(Integer.toString(contact.getPhoneNumber()));
+                            indexEdit[0] = notebook.indexOf(contact);
+                        }
                     }
                 }
-
             }
         });
         deleteButton.addActionListener(new ActionListener() {
@@ -83,15 +103,15 @@ public class ContactManagerScreen extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 for (int i = 0; i < notebook.size(); i++) {
-                    if (notebook.get(i).getName().equals(lblName.getText())) {
-                        lblName.setText(notebook.get(i).getName());
+                    if (notebook.get(i).getName().equals(lblFind.getText())) {
+//                        lblName.setText(notebook.get(i).getName());
 //                        lblEmail.setText(notebook.get(i).getEmail());
 //                        lblPhone.setText(Integer.toString(notebook.get(i).getPhoneNumber()));
 
                         ContactManager editContact = new ContactManager(lblName.getText(), lblEmail.getText(),Integer.parseInt(lblPhone.getText()));
 
-                       notebook.set(i, editContact);
-
+                       notebook.set(indexEdit[0], editContact);
+                        showAllButton.doClick();
 
                     }
                 }
@@ -127,6 +147,7 @@ public class ContactManagerScreen extends JFrame {
 
                     notebook.add(fakesContact);
                 }
+                showAllButton.doClick();
 
             }
 
