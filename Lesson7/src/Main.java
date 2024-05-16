@@ -4,10 +4,10 @@ public class Main {
 
         Lion Africanlion = new Lion("Leaonito", 60, "Savanna");
 
-        Africanlion.fazSom();
+        Africanlion.makesSound();
 
         Elephant ForestElephant = new Elephant("Ad",20, "Forest");
 
-        ForestElephant.fazSom();
+        ForestElephant.makesSound();
     }
 }
