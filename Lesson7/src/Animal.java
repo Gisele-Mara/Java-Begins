@@ -1,7 +1,7 @@
 public class Animal {
 
-    private String nome;
-    private int idade;
+    private String name;
+    private int age;
     private String habitat;
     private String caract;
 
@@ -13,12 +13,12 @@ public class Animal {
         this.caract = caract;
     }
 
-    public int getIdade() {
-        return idade;
+    public int getAge() {
+        return age;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getHabitat() {
@@ -29,16 +29,16 @@ public class Animal {
         this.habitat = habitat;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String name) {
+        this.name = name;
     }
 
-    public void fazSom(String som){
-        System.out.println(this.getNome() + " faz " + som);
+    public void makesSound(String sound){
+        System.out.println(this.getName() + " faz " + sound);
     }
 
 }
