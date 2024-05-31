@@ -6,7 +6,7 @@ public class Main {
 
         MilkShakespeareScreen myManager= new MilkShakespeareScreen();
 
-        myManager.createWindow();
+        myManager.createWindowComponents();
 
         /* for(int i = 0; i < order.size(); i++){
             if(i % 3 == 0){
