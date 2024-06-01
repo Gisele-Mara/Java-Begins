@@ -4,11 +4,14 @@ public class MilkShakespeare {
 
     private boolean status;
 
+    private String attendant;
+
 
     public MilkShakespeare(int id) {
 
         this.id = id;
         this.status = true;
+        this.attendant = "Waiting Attendant";
         }
 
     public int getId() {
@@ -28,9 +31,16 @@ public class MilkShakespeare {
     }
 
     public void finish (String attendantLevel){
-        System.out.println("Order Finished by a " + attendantLevel + " attendant");
 
         setStatus(false);
+    }
+
+    public String getAttendant (){
+       return attendant;
+    }
+    public void setAttendant (String attendant){
+        this.attendant = attendant;
+      
     }
 }
 

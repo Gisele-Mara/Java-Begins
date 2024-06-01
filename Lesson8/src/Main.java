@@ -4,9 +4,8 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
 
-        MilkShakespeareScreen myManager= new MilkShakespeareScreen();
+         new MilkShakespeareScreen();
 
-        myManager.createWindowComponents();
 
         /* for(int i = 0; i < order.size(); i++){
             if(i % 3 == 0){

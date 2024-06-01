@@ -1,13 +1,13 @@
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import java.util.ArrayList;
 
 public class MilkShakespeareScreen extends JFrame {
@@ -17,27 +17,25 @@ public class MilkShakespeareScreen extends JFrame {
     private JTable ordersTable;
     private JScrollPane ordersScroll;
 
-    static String[] columnNames = {"Id", "Product", "Attendant", "Status", "Button"};
+    static String[] columnNames = { "Id", "Product", "Attendant", "Status", "Button" };
     static ArrayList<MilkShakespeare> order = new ArrayList<>();
 
     public MilkShakespeareScreen() {
-        createWindowComponents();
-        fakeOrders();
-        finishOrder();
-    }
-
-    public void createWindowComponents() {
         ordersPanel = new JPanel();
         fakeOrdersButton = new JButton("Fake Orders");
         ordersPanel.add(fakeOrdersButton);
         ordersTable = new JTable(new DefaultTableModel(columnNames, 0));
         ordersScroll = new JScrollPane(ordersTable);
-                
+
         ordersPanel.add(ordersScroll);
+
         getContentPane().add(ordersPanel);
         setSize(800, 620);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        fakeOrders();
+        finishOrder();
     }
 
     public void fakeOrders() {
@@ -79,16 +77,17 @@ public class MilkShakespeareScreen extends JFrame {
                         "Classic Jello", "Oregon Chai", "Whoppers Malt"
                 };
 
-                String[] sizes = {"Small", "Medium", "Large"};
+                String[] sizes = { "Small", "Medium", "Large" };
 
-                order.add(new MilkShakeBar((order.size() + 1), flavours[(int) (Math.random() * (flavours.length - 1))], sizes[(int) (Math.random() * (sizes.length - 1))]));
+                order.add(new MilkShakeBar((order.size() + 1), flavours[(int) (Math.random() * (flavours.length - 1))],
+                        sizes[(int) (Math.random() * (sizes.length - 1))]));
                 order.add(new Library(order.size() + 1, bookTitles[(int) (Math.random() * (bookTitles.length - 1))]));
 
                 // updateTable(order.get(order.size() - 1));
                 cleanTable();
-            for (MilkShakespeare milkShakespeare : order) {
-                updateTable(milkShakespeare);
-            }
+                for (MilkShakespeare milkShakespeare : order) {
+                    updateTable(milkShakespeare);
+                }
             }
         });
     }
@@ -98,36 +97,45 @@ public class MilkShakespeareScreen extends JFrame {
         ordersTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               
-                    if(e.getClickCount() == 2){
-                        JTable target = (JTable)e.getSource();
-                        int row = target.getSelectedRow();
-                        System.out.println("aaaaaaaaaaaafoia" + row);
-                    } else {
-                        System.out.println("CRAP");
-                        
-                    }
-                        int selectedRow = ordersTable.getSelectedRow();
-                        System.out.println("Selected Row: " + selectedRow);
-                       
-                    
+
+                int selectedRow = ordersTable.getSelectedRow();
+                System.out.println("Selected Row: " + selectedRow);
                 
+                order.get(selectedRow).finish("WOW");
+                cleanTable();
+                for(int i = 0; i < order.size(); i++){
+                    if(i % 3 == 0){
+                        order.get(i).setAttendant("Senior");
+                
+                    } else if (order.get(i) instanceof MilkShakeBar){
+                        order.get(i).setAttendant("Mid-Level");
+                       
+                    } else {
+                        order.get(i).setAttendant("Junior");
+                      
+        
+                    }
+                }
+                for (MilkShakespeare milkShakespeare : order) {
+                    updateTable(milkShakespeare);
+                }
+
             }
-              
+
         });
     }
-        
 
     private void updateTable(MilkShakespeare newOrder) {
         DefaultTableModel model = (DefaultTableModel) ordersTable.getModel();
         if (newOrder instanceof MilkShakeBar milkShakeBar) {
-            model.addRow(new Object[]{milkShakeBar.getId(), milkShakeBar.getFlavour(), "", milkShakeBar.isStatus(), ""});
+            model.addRow(
+                    new Object[] { milkShakeBar.getId(), milkShakeBar.getFlavour(), milkShakeBar.getAttendant(), milkShakeBar.isStatus(), "" });
         } else if (newOrder instanceof Library library) {
-            model.addRow(new Object[]{library.getId(), library.getBook(), "", library.isStatus(), ""});
+            model.addRow(new Object[] { library.getId(), library.getBook(), library.getAttendant(), library.isStatus(), "" });
         }
     }
 
-    private void cleanTable(){
+    private void cleanTable() {
         DefaultTableModel model = (DefaultTableModel) ordersTable.getModel();
         model.setRowCount(0);
     }
